@@ -5,5 +5,10 @@ export default class ContactPointModel extends Model {
   @attr telephone;
   @attr fax;
   @attr website;
-  @belongsTo('address') contactAddress;
+
+  @belongsTo('address', {
+    inverse: null,
+    async: false,
+  })
+  contactAddress;
 }

@@ -3,14 +3,36 @@ import Model, { attr, hasMany, belongsTo } from '@ember-data/model';
 export default class GoverningBodyModel extends Model {
   @attr('date') startDate;
   @attr('date') endDate;
-  @belongsTo('administrative-unit') administrativeUnit;
-  @belongsTo('governing-body-classification-code', { inverse: null })
+
+  @belongsTo('administrative-unit', {
+    inverse: 'governingBodies',
+    async: false,
+  })
+  administrativeUnit;
+
+  @belongsTo('governing-body-classification-code', {
+    inverse: null,
+    async: false,
+  })
   classification;
-  @belongsTo('governing-body', { inverse: 'hasTimeSpecializations' })
+
+  @belongsTo('governing-body', {
+    inverse: 'hasTimeSpecializations',
+    async: false,
+  })
   isTimeSpecializationOf;
-  @hasMany('governing-body', { inverse: 'isTimeSpecializationOf' })
+
+  @hasMany('governing-body', {
+    inverse: 'isTimeSpecializationOf',
+    async: false,
+  })
   hasTimeSpecializations;
-  @hasMany('mandate') mandates;
+
+  @hasMany('mandate', {
+    inverse: 'governingBody',
+    async: false,
+  })
+  mandates;
 
   get period() {
     let period = '';
