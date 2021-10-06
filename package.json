@@ -61,6 +61,7 @@
     "ember-maybe-import-regenerator": "^0.1.6",
     "ember-modifier": "^2.1.2",
     "ember-page-title": "^6.2.2",
+    "ember-plausible": "Windvis/ember-plausible#main",
     "ember-power-select": "^4.1.6",
     "ember-qunit": "^5.1.4",
     "ember-resolver": "^8.0.2",
